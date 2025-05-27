@@ -1,6 +1,6 @@
 with
 
-customers as (
+customers_ofzo as (
 
     select * from {{ ref('stg_customers') }}
 
@@ -34,7 +34,7 @@ customer_orders_summary as (
 joined as (
 
     select
-        customers.*,
+        customers_ofzo.*,
 
         customer_orders_summary.count_lifetime_orders,
         customer_orders_summary.first_ordered_at,
